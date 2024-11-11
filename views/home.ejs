@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+        .container {
+            background-color: aqua;
+            height: 150px;
+            border-radius: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>All Member List</h2>
+    <a href="/new">
+        <button>Join Us Today</button>
+    </a>
+    
+    <% for (let user of data) { %>
+        <div class="container">
+            <h2 > Username:-<%= user.name %></h2> 
+            <h3>Email:-<%=user.email  %></h3> 
+            <h3>Age:-<%=user.age  %></h3>
+            <a href="/edit/<%=user._id%>"><button>Edit Email</button></a>
+            <form action="/delete/<%= user._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit">Delete Account</button>
+            </form>
+        </div>
+    <% } %>
+
+</body>
+</html>
